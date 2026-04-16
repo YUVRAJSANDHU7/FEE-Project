@@ -1,16 +1,20 @@
 name: My First Workflow
 
-on:
-  push:
-    branches: [ "main" ]
+on: [push]
 
 jobs:
-  build:
+  first-job:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: First Job Step
+        run: echo "Hello from first job"
 
-      - name: Run command
-        run: echo "Workflow is running successfully!"
+  say.bye:
+    runs-on: ubuntu-latest
+    needs: first-job
+    steps:
+      - name: Wait 2 seconds
+        run: sleep 2
+
+      - name: Print Goodbye
+        run: echo "Goodbye from second job"
