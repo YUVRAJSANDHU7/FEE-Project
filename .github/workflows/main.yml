@@ -9,7 +9,7 @@ jobs:
       - name: First Job Step
         run: echo "Hello from first job"
 
-  say.bye:
+  say_bye:
     runs-on: ubuntu-latest
     needs: first-job
     steps:
